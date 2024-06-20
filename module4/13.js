@@ -1,35 +1,19 @@
-let items = ["Apple", "Banana", "Pear", "Kiwi"]
+//! Constructor 
 
-class Seller {
+class Human {
 
-    constructor(sellerName) {
-        this.sellerName = sellerName
+    constructor(name, age, gender) {
+        this.name = name
+        this.age = age
+        this.gender = gender
     }
 
-    sellItem(name) {
-        return items = items.filter((item) => item !== name)
+    getInfo() {
+        return `${this.name} is ${this.gender}, and is ${this.age} year old`
     }
 
 }
 
-class Owner extends Seller {
+const person1 = new Human("Tom", 18, "Male")
 
-    //? Super() allows the Inheritance to pass down constructor
-    constructor(ownerName) {
-        super(ownerName)
-        this.ownerName = ownerName
-    }
-
-    restockItem(name) {
-        return items.push(name)
-    }
-}
-
-const seller = new Seller("Luke")
-const owner = new Owner("Tom")
-
-seller.sellItem("Apple")
-owner.restockItem("Banana")
-owner.sellItem("Kiwi")
-
-console.log(items)
+console.log(person1.getInfo())

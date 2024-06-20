@@ -42,4 +42,5 @@ class School {
 
 }
 
-const conceptians = new School()
+const codeMal = new School()
+n
