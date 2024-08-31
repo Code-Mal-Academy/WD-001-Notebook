@@ -28,7 +28,7 @@ console.log(student1.walk())
 class Group {
 
     constructor() {
-        this.students = new Student()
+        this.student = new Student()
         this.human = new Human()
     }
 }
@@ -42,5 +42,6 @@ class School {
 
 }
 
+
 const codeMal = new School()
-n
+const stanFord = new School()

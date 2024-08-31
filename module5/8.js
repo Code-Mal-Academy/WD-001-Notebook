@@ -4,10 +4,10 @@ const app = new express()
 
 //? You can add Middleware by app.use()
 //? Middleware will run on every request
-app.use((req, res, next) => {
-    console.log(req.headers)
-    next()
-})
+// app.use((req, res, next) => {
+//     console.log(req.ip)
+//     next()
+// })
 
 //? Parsing JSON
 app.use(express.json())

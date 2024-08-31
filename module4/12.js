@@ -13,7 +13,11 @@ class Human {
     }
 }
 
-// const human1 = new Human()
+const human1 = new Human()
+const human2 = new Human()
+
+human1.run()
+human1.walk()
 
 //? Same As 
 
@@ -29,11 +33,10 @@ class Human {
 //     }
 // }
 
-const human1 = new Human()
 
-//? What OOP allows is Create The Same Instance Of Object Without Writing The Objects
-//? Again, and Again
+// //? What OOP allows is Create The Same Instance Of Object Without Writing The Objects
+// //? Again, and Again
 
-human1.walk()
-human1.run()
-console.log(human1.name)
+// human1.walk()
+// human1.run()
+// console.log(human1.name)

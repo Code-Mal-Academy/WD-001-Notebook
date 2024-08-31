@@ -18,6 +18,7 @@ app.get("/:id", async (req, res) => {
 
 app.post("/", async (req, res) => {
     const body = req.body as Omit<typeof data[number], 'id'>
+    console.log(req.body)
     const largestId = data.reduce((maxId, obj) => obj.id > maxId ? obj.id : maxId, 0) + 1
     data.push({ id: largestId, ...body })
     return res.status(201).send({ id: largestId, ...body })
@@ -45,6 +46,5 @@ app.delete("/", async (req, res) => {
     return res.status(200).send({ message: "Data Has Been Deleted" })
 })
 
-const port = 8080
 
 app.listen(8080, "", () => console.log("Server is Running On Port:8080"))

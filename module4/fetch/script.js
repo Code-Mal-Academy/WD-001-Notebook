@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         liTag.id = user.id
         btnTag.id = user.id
 
+
         pTag.innerText = `Id: ${user.id}; Name: ${user.name}; Age: ${user.age}; Gender: ${user.gender}`
         btnTag.innerText = "DELETE"
 
@@ -19,6 +20,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         liTag.append(btnTag)
 
         btnTag.onclick = () => deleteData(Number(btnTag.id))
+
+
+
 
         fetchDiv.appendChild(liTag)
     });
@@ -47,6 +51,8 @@ submitAddButton.addEventListener("click", async () => {
 
     const user = await createData(name, age, gender)
 
+    console.log(user)
+
     const liTag = document.createElement("li")
     const pTag = document.createElement("p")
     const btnTag = document.createElement("button")
@@ -68,17 +74,18 @@ submitAddButton.addEventListener("click", async () => {
 })
 
 const createData = async (name, age, gender) => {
+
     try {
 
         const req = await fetch('http://localhost:8080/', {
             method: 'POST',
             body: JSON.stringify({
                 name: name,
-                age: age,
+                age: Number(age),
                 gender: gender,
             }),
             headers: {
-                'Content-type': 'application/json;',
+                'Content-type': 'application/json',
             },
         })
         const data = await req.json()
@@ -123,7 +130,7 @@ const updateData = async (id, name, age, gender) => {
                 gender: gender,
             }),
             headers: {
-                'Content-type': 'application/json;',
+                'Content-type': 'application/json',
             },
         })
         const data = await req.json()
@@ -152,10 +159,10 @@ const deleteData = async (id) => {
         const req = await fetch('http://localhost:8080/', {
             method: 'DELETE',
             body: JSON.stringify({
-                id: id,
+                id: Number(id),
             }),
             headers: {
-                'Content-type': 'application/json;',
+                'Content-type': 'application/json',
             },
         })
 

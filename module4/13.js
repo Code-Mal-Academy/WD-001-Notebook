@@ -15,5 +15,7 @@ class Human {
 }
 
 const person1 = new Human("Tom", 18, "Male")
+const person2 = new Human("Ryan", 10, "Male")
 
 console.log(person1.getInfo())
+console.log(person2.getInfo())

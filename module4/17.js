@@ -32,4 +32,5 @@ seller.sellItem("Apple")
 owner.restockItem("Banana")
 owner.sellItem("Kiwi")
 
+console.log(owner.sellerName)
 console.log(items)
