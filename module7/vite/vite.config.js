@@ -1,29 +1,16 @@
-// vite.config.js
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
-    plugins: [
-        {
-            name: "middleware",
-            apply: "serve",
-            configureServer(viteDevServer) {
-                return () => {
-
-                    viteDevServer.middlewares.use(async (req, res, next) => {
-                        if (req.originalUrl.startsWith("/login")) {
-                            req.url = "/pages/login/index.html";
-                        }
-
-                        if (req.originalUrl.startsWith("/register")) {
-                            req.url = "/pages/register/index.html";
-                        }
-
-                        next();
-                    });
-                }
-            }
+    build: {
+        rollupOptions: {
+            input: {
+                main: resolve(__dirname, 'index.html'),
+                login: resolve(__dirname, 'login/index.html'),
+                register: resolve(__dirname, 'register/index.html'),
+                todo: resolve(__dirname, 'todo/index.html')
+            },
         },
 
-    ]
-
-})
+    }
+});
